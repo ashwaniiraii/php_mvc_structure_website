@@ -1,16 +1,14 @@
 <?php 
 require 'functions.php';
 
-$uri = $_SERVER['REQUEST_URI'];
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-if($uri === '/'){
-    require '<controllers/index.php';
-}
-elseif($uri === '/about'){
-    require 'controllers/about.php';
-}
-elseif($uri === '/contact'){
-    require 'controllers/contact.php';
-}else{
-    echo "url not found";
+$routes  = [
+    '/' => 'controllers/index.php',
+    '/contact' => 'controllers/contact.php',
+    '/about' => 'controllers/about.php'
+];
+
+if(array_key_exists($uri,$routes)){
+    include $routes[$uri];
 }
