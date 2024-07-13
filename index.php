@@ -2,7 +2,7 @@
 require 'functions.php';
 // require 'router.php';
 
-//connect to our MySql database.
+//connect to our MySql database setup pdo
 $dsn = 'mysql:host=localhost;dbname=myapp;charset=utf8';
 $username = 'root';
 $password = '';
